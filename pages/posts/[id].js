@@ -1,7 +1,7 @@
-import Date from "../../components/date";
-import Head from "next/head";
-import Layout from "../../components/layout";
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import Date from '../../components/date'
+import Head from 'next/head'
+import Layout from '../../components/layout'
+import { getAllPostIds, getPostData } from '../../lib/posts'
 import utilStyles from '../../styles/utils.module.css'
 
 export default function Post({ postData }) {
@@ -19,8 +19,8 @@ export default function Post({ postData }) {
   )
 }
 
-export function getStaticPaths() {
-  const paths = getAllPostIds()
+export async function getStaticPaths() {
+  const paths = await getAllPostIds()
   return {
     paths,
     fallback: false,
