@@ -2,12 +2,10 @@
  * list for post
  */
 export type resListPost = {
-  posts: listPosts
+  posts: listPost[]
 }
 
-export type listPosts = listPost[]
-
-type listPost = {
+export type listPost = {
   id: string
   slug: string
   title: string
@@ -18,10 +16,8 @@ type listPost = {
  * slug
  */
 export type resSlugPost = {
-  posts: slugPosts
+  posts: slugPost[]
 }
-
-export type slugPosts = slugPost[]
 
 export type slugPost = {
   slug: string
@@ -34,12 +30,10 @@ export type propSlug = {
  * post
  */
 export type resPost = {
-  posts: posts
+  posts: post[]
 }
 
-export type posts = post[]
-
-type post = {
+export type post = {
   id: string
   slug: string
   title: string

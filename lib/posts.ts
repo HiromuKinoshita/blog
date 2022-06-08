@@ -1,7 +1,7 @@
 import { gql, GraphQLClient } from 'graphql-request'
 import {
   resListPost,
-  listPosts,
+  listPost,
   resSlugPost,
   slugPost,
   resPost,
@@ -9,7 +9,7 @@ import {
   propSlug,
 } from './posts.d'
 
-export async function getSortedPostsData(): Promise<listPosts> {
+export async function getSortedPostsData(): Promise<listPost[]> {
   const q: string = `
     {
       posts(orderBy: updatedAt_DESC) {
