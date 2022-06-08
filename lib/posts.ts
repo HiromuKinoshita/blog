@@ -1,7 +1,7 @@
 import { gql, GraphQLClient } from 'graphql-request'
 
-export async function getSortedPostsData() {
-  const q = `
+export async function getSortedPostsData(): Promise<any> {
+  const q: string = `
     {
       posts(orderBy: updatedAt_DESC) {
         id
@@ -15,8 +15,8 @@ export async function getSortedPostsData() {
   return posts
 }
 
-export async function getAllPostIds() {
-  const q = `
+export async function getAllPostIds(): Promise<any> {
+  const q: string = `
     {
       posts {
         slug
@@ -25,7 +25,7 @@ export async function getAllPostIds() {
   `
   const { posts } = await queryGraphCms(q)
 
-  return posts.map((p) => {
+  return posts.map((p: any) => {
     return {
       params: {
         id: p.slug,
@@ -34,10 +34,10 @@ export async function getAllPostIds() {
   })
 }
 
-export async function getPostData(id) {
-  const q = `
+export async function getPostData(slugs: string[] | string): Promise<any> {
+  const q: string = `
   {
-    posts(where: { slug: "${id}" }) {
+    posts(where: { slug: "${slugs}" }) {
       id
       slug
       title
@@ -55,7 +55,7 @@ export async function getPostData(id) {
   return post
 }
 
-async function queryGraphCms(q) {
+async function queryGraphCms(q: string): Promise<any> {
   const graphcms = new GraphQLClient(
     `https://api-ap-northeast-1.graphcms.com/v2/${process.env.GRAPHCMS_URL_TOKEN}/master`,
   )
