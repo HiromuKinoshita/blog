@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import Date from '../../components/date'
 import Head from 'next/head'
 import Layout from '../../components/layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
+import { getAllPostSlugs, getPostData } from '../../lib/posts'
 import utilStyles from '../../styles/utils.module.css'
 
 export default function Post({ postData }): ReactNode {
@@ -28,7 +28,7 @@ Post.getLayout = (page: ReactNode): ReactNode => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getAllPostIds()
+  const paths = await getAllPostSlugs()
   return {
     paths,
     fallback: false,

@@ -1,6 +1,14 @@
 import { gql, GraphQLClient } from 'graphql-request'
+import {
+  resListPost,
+  listPosts,
+  resSlugPost,
+  slugPost,
+  resPost,
+  post,
+} from './posts.d'
 
-export async function getSortedPostsData(): Promise<any> {
+export async function getSortedPostsData(): Promise<listPosts> {
   const q: string = `
     {
       posts(orderBy: updatedAt_DESC) {
@@ -11,11 +19,11 @@ export async function getSortedPostsData(): Promise<any> {
       }
     }
   `
-  const { posts } = await queryGraphCms(q)
+  const { posts }: resListPost = await queryGraphCms(q)
   return posts
 }
 
-export async function getAllPostIds(): Promise<any> {
+export async function getAllPostSlugs(): Promise<any> {
   const q: string = `
     {
       posts {
@@ -23,9 +31,9 @@ export async function getAllPostIds(): Promise<any> {
       }
     }
   `
-  const { posts } = await queryGraphCms(q)
+  const { posts }: resSlugPost = await queryGraphCms(q)
 
-  return posts.map((p: any) => {
+  return posts.map((p: slugPost) => {
     return {
       params: {
         id: p.slug,
@@ -34,7 +42,7 @@ export async function getAllPostIds(): Promise<any> {
   })
 }
 
-export async function getPostData(slugs: string[] | string): Promise<any> {
+export async function getPostData(slugs: string[] | string): Promise<post> {
   const q: string = `
   {
     posts(where: { slug: "${slugs}" }) {
@@ -49,8 +57,8 @@ export async function getPostData(slugs: string[] | string): Promise<any> {
   }
   `
 
-  const { posts } = await queryGraphCms(q)
-  const post = posts[0]
+  const { posts }: resPost = await queryGraphCms(q)
+  const post: post = posts[0]
 
   return post
 }
