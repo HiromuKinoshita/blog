@@ -1,3 +1,6 @@
+/**
+ * list for post
+ */
 export type resListPost = {
   posts: listPosts
 }
@@ -11,6 +14,9 @@ type listPost = {
   updatedAt: string!
 }
 
+/**
+ * slug
+ */
 export type resSlugPost = {
   posts: slugPosts
 }
@@ -24,6 +30,9 @@ export type propSlug = {
   params: slugPost
 }
 
+/**
+ * post
+ */
 export type resPost = {
   posts: posts
 }
