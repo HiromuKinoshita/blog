@@ -20,6 +20,9 @@ export type slugPosts = slugPost[]
 export type slugPost = {
   slug: string
 }
+export type propSlug = {
+  params: slugPost
+}
 
 export type resPost = {
   posts: posts

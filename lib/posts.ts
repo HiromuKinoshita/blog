@@ -6,6 +6,7 @@ import {
   slugPost,
   resPost,
   post,
+  propSlug,
 } from './posts.d'
 
 export async function getSortedPostsData(): Promise<listPosts> {
@@ -23,7 +24,7 @@ export async function getSortedPostsData(): Promise<listPosts> {
   return posts
 }
 
-export async function getAllPostSlugs(): Promise<any> {
+export async function getAllPostSlugs(): Promise<propSlug[]> {
   const q: string = `
     {
       posts {
@@ -36,7 +37,7 @@ export async function getAllPostSlugs(): Promise<any> {
   return posts.map((p: slugPost) => {
     return {
       params: {
-        id: p.slug,
+        slug: p.slug,
       },
     }
   })
