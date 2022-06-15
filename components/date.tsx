@@ -10,8 +10,10 @@ export default function Date({ dateString }: dateString): ReactElement {
 if (import.meta.vitest) {
   const { it, expect } = import.meta.vitest
   const d = '20220501'
+  const el = Date({ dateString: d })
 
   it('Date', () => {
-    expect(Date({ dateString: d }).props.children).toBe('May 1, 2022')
+    expect(el.props.children).toBe('May 1, 2022')
+    expect(el).toMatchSnapshot()
   })
 }

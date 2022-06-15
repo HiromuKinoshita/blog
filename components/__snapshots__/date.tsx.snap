@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`Date 1`] = `
+<time
+  dateTime="20220501"
+>
+  May 1, 2022
+</time>
+`;
