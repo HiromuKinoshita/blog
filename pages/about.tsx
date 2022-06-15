@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react'
+import type { ReactElement } from 'react'
 
-export default function Abount():ReactNode {
+export default function Abount(): ReactElement {
   return <p>This is My Name!!</p>
 }

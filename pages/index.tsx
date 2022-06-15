@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next'
-import { ReactNode } from 'react'
+import { ReactElement } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 
@@ -8,7 +8,7 @@ import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 
-export default function Home({ allPostsData }): ReactNode {
+export default function Home({ allPostsData }): ReactElement {
   return (
     <Layout isHome={true}>
       <Head>

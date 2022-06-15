@@ -1,12 +1,12 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
-import type { ReactNode } from 'react'
+import type { ReactElement } from 'react'
 import Date from '../../components/date'
 import Head from 'next/head'
 import Layout from '../../components/layout'
 import { getAllPostSlugs, getPostData } from '../../lib/posts'
 import utilStyles from '../../styles/utils.module.css'
 
-export default function Post({ postData }): ReactNode {
+export default function Post({ postData }): ReactElement {
   return (
     <>
       <Head>{postData.title}</Head>
@@ -21,7 +21,7 @@ export default function Post({ postData }): ReactNode {
   )
 }
 
-Post.getLayout = (page: ReactNode): ReactNode => {
+Post.getLayout = (page: ReactElement): ReactElement => {
   return (
     <Layout isHome={false}>{page}</Layout>
   )
@@ -35,7 +35,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps =  async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await getPostData(params.slug)
   return { props: { postData } }
 }

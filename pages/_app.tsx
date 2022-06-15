@@ -1,10 +1,10 @@
 import '../styles/global.css'
-import type { ReactNode } from 'react'
+import type { ReactElement } from 'react'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 
 type NextPageWithLayout = NextPage & {
-  getLayout?: () => ReactNode
+  getLayout?: () => ReactElement
 }
 
 type AppPropsWithLayout = AppProps & {
@@ -12,7 +12,7 @@ type AppPropsWithLayout = AppProps & {
 }
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? ((page: ReactNode) => page)
+  const getLayout = Component.getLayout ?? ((page: ReactElement) => page)
 
   return getLayout(<Component {...pageProps} />)
 }
