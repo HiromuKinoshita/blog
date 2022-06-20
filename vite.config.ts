@@ -7,6 +7,7 @@ export default defineConfig({
   test: {
     includeSource: [
       'components/**/*.{js,jsx,ts,tsx}',
+      'pages/**/*.{js,jsx,ts,tsx}',
     ],
     include: [
       '**/*.{test,spec}.{js,jsx,ts,tsx}',
