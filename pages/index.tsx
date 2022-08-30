@@ -15,10 +15,9 @@ export default function Home({ allPostsData }): ReactElement {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
+        <p>Jerome-1010 blog</p>
         <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+          Thank you for visiting but this blog is still under construction. Please come back later!
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>

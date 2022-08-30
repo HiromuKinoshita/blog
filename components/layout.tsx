@@ -3,8 +3,8 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-const name = 'Your Name'
-export const siteTitle = 'Next.js Sample Website'
+const name = 'Jerome-1010'
+export const siteTitle = 'Jerome-1010 blog'
 
 export default function Layout({ children, isHome }) {
   return (
@@ -34,7 +34,6 @@ export default function Layout({ children, isHome }) {
               width={144}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
         ) : (
           <>
